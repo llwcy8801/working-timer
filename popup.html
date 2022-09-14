@@ -6,29 +6,34 @@
   </head>
   <body>
     <div id="app">
-        <div class="itemWrap">
-            <div class="title">上钟时间：</div>
-            <input class="hour1" type="text" maxlength="2">
-            :
-            <input class="minute1" type="text" maxlength="2">
+        <div class="itemWrap time">
+            <div class="timeItem item1">
+                <div class="title">上钟时间：</div>
+                <input class="hour1" type="text" maxlength="2">
+                :
+                <input class="minute1" type="text" maxlength="2">
+            </div>
+            <div class="timeItem item2">
+                <div class="title">休息时长：</div>
+                <input class="hour2" type="text" maxlength="2">
+                :
+                <input class="minute2" type="text" maxlength="2">
+            </div>
+            <div class="timeItem item3">
+                <div class="title">在钟时长：</div>
+                <input class="hour3" type="text" maxlength="2">
+                :
+                <input class="minute3" type="text" maxlength="2">
+            </div>
+            <div class="timeItem item4">
+                <div class="title">下钟时间：</div>
+                <input class="hour4" type="text" maxlength="2">
+                :
+                <input class="minute4" type="text" maxlength="2">
+            </div>
         </div>
-        <div class="itemWrap">
-            <div class="title">休息时长：</div>
-            <input class="hour2" type="text" maxlength="2">
-            :
-            <input class="minute2" type="text" maxlength="2">
-        </div>
-        <div class="itemWrap">
-            <div class="title">在钟时长：</div>
-            <input class="hour3" type="text" maxlength="2">
-            :
-            <input class="minute3" type="text" maxlength="2">
-        </div>
-        <div class="itemWrap">
-            <div class="title">下钟时间：</div>
-            <input class="hour4" type="text" maxlength="2">
-            :
-            <input class="minute4" type="text" maxlength="2">
+        <div class="itemWrap toolbar">
+            <button class="reset">reset</button>
         </div>
         <div class="itemWrap">
             <div class="title">
@@ -39,9 +44,6 @@
                 <div class="progress"></div>
                 <div class="progressContent"></div>
             </div>
-        </div>
-        <div class="itemWrap">
-            <button class="reset">reset</button>
         </div>
     </div>
     <script src="popup.js"></script>

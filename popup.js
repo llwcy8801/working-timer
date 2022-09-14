@@ -18,6 +18,14 @@ const storage = {
     }
 }
 
+// 格式化时间
+const formatDuring = (mss) => {
+    let hours = parseInt((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = parseInt((mss % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = parseInt((mss % (1000 * 60)) / 1000);
+    return `${('00' + hours).slice(-2)}:${('00' + minutes).slice(-2)}:${('00' + seconds).slice(-2)}`
+}
+
 /* data */
 
 /* methods */
@@ -158,13 +166,13 @@ const showPercentage = () => {
     let start = new Date().setHours(Number(hour1), Number(minute1), 0, 0);
     let [hour2, minute2] = timerObj.intervalTime.split(':');
     let intervalTimeStart = new Date().setHours(12, 0, 0, 0);
-    let intervalTimeEnd = new Date().setHours(12+Number(hour1), Number(minute1), 0, 0);
+    let intervalTimeEnd = new Date().setHours(12+Number(hour2), Number(minute2), 0, 0);
     let now = new Date().getTime();
     let workDate = 0;
     if (now < intervalTimeStart) {
         workDate = now - start;
     } else if (now < intervalTimeEnd) {
-        workDate = now - intervalTimeStart;
+        workDate = intervalTimeStart - start;
     } else if (now > intervalTimeEnd) {
         workDate = now - start - 60*60*1000*hour2 - 60*1000*minute2;
     }
@@ -181,7 +189,7 @@ const showPercentage = () => {
     }
     progressNumber.innerText = `${percentage}%`;
     progress.style.width = `${percentage > 100 ? 100 : percentage}%`;
-    progressContent.innerText = `${Math.floor(workDate/1000)}s/${Math.floor(workTimes/1000)}s`
+    progressContent.innerText = `${formatDuring(workDate)}/${formatDuring(workTimes)}`
 }
 
 // 更新数据并存储
