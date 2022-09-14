@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <div id="app">
+        <div class="itemWrap">
+            <div class="title">上钟时间：</div>
+            <input class="hour1" type="text" maxlength="2">
+            :
+            <input class="minute1" type="text" maxlength="2">
+        </div>
+        <div class="itemWrap">
+            <div class="title">休息时长：</div>
+            <input class="hour2" type="text" maxlength="2">
+            :
+            <input class="minute2" type="text" maxlength="2">
+        </div>
+        <div class="itemWrap">
+            <div class="title">在钟时长：</div>
+            <input class="hour3" type="text" maxlength="2">
+            :
+            <input class="minute3" type="text" maxlength="2">
+        </div>
+        <div class="itemWrap">
+            <div class="title">下钟时间：</div>
+            <input class="hour4" type="text" maxlength="2">
+            :
+            <input class="minute4" type="text" maxlength="2">
+        </div>
+        <div class="itemWrap">
+            <div class="title">
+                <span>在钟百分比：</span>
+                <span class="progressNumber"></span>
+            </div>
+            <div class="progressWrap">
+                <div class="progress"></div>
+                <div class="progressContent"></div>
+            </div>
+        </div>
+        <div class="itemWrap">
+            <button class="reset">reset</button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
