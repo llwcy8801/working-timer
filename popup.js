@@ -43,12 +43,30 @@ const calculateEndTime = (key) => {
     let [hour1, minute1] = timerObj.startTime.split(':');
     let start = new Date().setHours(Number(hour1), Number(minute1), 0, 0);
     let [hour2, minute2] = timerObj.intervalTime.split(':');
+    let intervalTimeStart = new Date().setHours(12, 0, 0, 0);
+    let intervalTimeEnd = new Date().setHours(12+Number(hour2), Number(minute2), 0, 0);
     let [hour3, minute3] = timerObj.workHours.split(':');
     let [hour4, minute4] = timerObj.endTime.split(':');
     let end = new Date().setHours(Number(hour4), Number(minute4), 0, 0);
     if (key === 'endTime') {
         // 不固定工作时长，计算下班时间，或计算工作时长
-        let differenceTime = end - start - 60*60*1000*hour2 - 60*1000*minute2;
+        // let differenceTime = end - start - 60*60*1000*hour2 - 60*1000*minute2;
+        let differenceTime = 0;
+        if (start < intervalTimeStart) {
+            if (end < intervalTimeStart) {
+                differenceTime = end - start;
+            } else if (end < intervalTimeEnd) {
+                differenceTime = intervalTimeStart - start;
+            } else {
+                differenceTime = intervalTimeStart - start + (end - intervalTimeEnd);
+            }
+        } else if (start < intervalTimeEnd) {
+            if (end > intervalTimeEnd) {
+                differenceTime = end - intervalTimeEnd;
+            }
+        } else {
+            differenceTime = end - start;
+        }
         if (differenceTime <= 0) {
             timerObj.workHours = '00:00';
         } else {
@@ -59,7 +77,16 @@ const calculateEndTime = (key) => {
         }
     } else {
         // 通用计算下班时间
-        let endTimeNew = new Date(start + 60*60*1000*(1*hour2+1*hour3) + 60*1000*(1*minute2+1*minute3));
+        let endTimeNew = new Date().setHours(0, 0, 0, 0);
+        if (start < intervalTimeStart) {
+            endTimeNew = new Date(start + 60*60*1000*(1*hour2+1*hour3) + 60*1000*(1*minute2+1*minute3));
+        } else if (start < intervalTimeEnd) {
+            endTimeNew = new Date(intervalTimeEnd + 60*60*1000*(1*hour3) + 60*1000*(1*minute3));
+        } else if (start > intervalTimeEnd) {
+            endTimeNew = new Date(start + 60*60*1000*(1*hour3) + 60*1000*(1*minute3));
+        } else {
+            endTimeNew = new Date(start + 60*60*1000*(1*hour2+1*hour3) + 60*1000*(1*minute2+1*minute3));
+        }
         if (new Date(start).getDate() !== endTimeNew.getDate()) {
             timerObj.endTime = '23:59';
         } else {
