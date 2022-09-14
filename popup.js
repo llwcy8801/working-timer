@@ -169,16 +169,20 @@ const showPercentage = () => {
     let intervalTimeEnd = new Date().setHours(12+Number(hour2), Number(minute2), 0, 0);
     let now = new Date().getTime();
     let workDate = 0;
-    if (now < intervalTimeStart) {
+    if (start < intervalTimeStart) {
+        if (now < intervalTimeStart) {
+            workDate = now - start;
+        } else if (now < intervalTimeEnd) {
+            workDate = intervalTimeStart - start;
+        } else if (now > intervalTimeEnd) {
+            workDate = now - start - 60*60*1000*hour2 - 60*1000*minute2;
+        }
+    } else if (start < intervalTimeEnd) {
+        workDate = now - intervalTimeEnd;
+    } else if (start > intervalTimeEnd) {
         workDate = now - start;
-    } else if (now < intervalTimeEnd) {
-        workDate = intervalTimeStart - start;
-    } else if (now > intervalTimeEnd) {
-        workDate = now - start - 60*60*1000*hour2 - 60*1000*minute2;
     }
-    if (workDate < 0) {
-        workDate = 0;
-    }
+    workDate = workDate < 0 ? 0 : workDate;
     // 计算总工作时长
     let [hour3, minute3] = timerObj.workHours.split(':');
     const workTimes = 60*60*1000*hour3 + 60*1000*minute3;
