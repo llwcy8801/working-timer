@@ -1,3 +1,6 @@
+## 预览图
+![working timer preview](https://p5.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/21552510216/a5fd/e149/37cc/5a917071a99bdc6953fab486aa15f395.png)
+
 ## 项目名称
 working timer
 
@@ -6,3 +9,16 @@ working timer
 
 ## 使用方式
 Chrome 插件
+
+## 感谢
+感谢帮忙打榜的兄（技）弟（师） ..
+- 1号：[daweedkob](https://github.com/daweedkob)
+- 2号：[Qquanwei](https://github.com/Qquanwei)
+- 3号：[Vicew](https://github.com/Vicew)
+- 4号：[xdliyushen](https://github.com/xdliyushen)
+- 5号：[shenyizhou](https://github.com/shenyizhou)
+- 6号：[lkangle](https://github.com/lkangle)
+- 7号：[shizhipeng](https://github.com/shizhipeng)
+- 8号：[yuzai](https://github.com/yuzai)
+- 9号：[BoBoooooo](https://github.com/BoBoooooo)
+- 10号：[wupeng2506](https://github.com/wupeng2506)
