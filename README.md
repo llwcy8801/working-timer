@@ -1,5 +1,5 @@
 ## 预览图
-![working timer preview](https://p5.music.126.net/obj/wonDlsKUwrLClGjCm8Kx/21552510216/a5fd/e149/37cc/5a917071a99bdc6953fab486aa15f395.png)
+![working timer preview](./images/preview.png)
 
 ## 项目名称
 working timer
@@ -22,3 +22,4 @@ Chrome 插件
 - 8号：[yuzai](https://github.com/yuzai)
 - 9号：[BoBoooooo](https://github.com/BoBoooooo)
 - 10号：[wupeng2506](https://github.com/wupeng2506)
+- ..
