@@ -8,7 +8,7 @@ working timer
 一个用于计算工作时间的计时器
 
 ## 使用方式
-Chrome 插件
+Chrome 插件：[商店链接](https://chromewebstore.google.com/detail/%E5%B7%A5%E6%97%B6%E8%AE%A1%E6%97%B6%E5%99%A8working-timer/okkamoefmheebihfhpkmlohggeldhapf?hl=zh-CN)
 
 ## 感谢
 感谢帮忙打榜的兄（技）弟（师） ..
